@@ -1,0 +1,19 @@
+name: openai
+version: 0.0.1
+
+authors:
+  - Denis Tu dmarshaltu@gmail.com
+
+description: OpenAI library for Crystal
+
+dependencies:
+  json_mapping:
+    github: crystal-lang/json_mapping.cr
+
+targets:
+  openai:
+    main: src/openai.cr
+
+crystal: 1.9.2
+
+license: MIT
