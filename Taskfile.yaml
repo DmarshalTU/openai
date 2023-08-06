@@ -1,0 +1,32 @@
+version: '3'
+
+tasks:
+  build-docker:
+    cmds:
+      - docker build -t openai-crystal-lib .
+    desc: Build the Docker image for the OpenAI Crystal library
+
+  install-local:
+    cmds:
+      - shards install
+    desc: Install the OpenAI Crystal library locally
+
+  build:
+    cmds:
+      - crystal build src/openai.cr
+    desc: Build the OpenAI Crystal library
+
+  test:
+    cmds:
+      - crystal spec
+    desc: Run tests for the OpenAI Crystal library
+
+  run:
+    cmds:
+      - crystal run src/openai.cr
+    desc: Run the OpenAI Crystal library
+
+  clean:
+    cmds:
+      - rm -rf lib bin
+    desc: Clean build artifacts
