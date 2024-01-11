@@ -1,4 +1,6 @@
-# openai
+# openaiAPI
+
+![opanAI](./images/opanaiAPI.png)
 
 OpenAI library for Crystal, providing an interface to interact with various OpenAI services.
 
