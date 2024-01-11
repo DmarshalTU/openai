@@ -55,7 +55,27 @@ module OpenAI
     
       { text: completion_text, id: completion_id }
     end
-    
+
+    def create_image_completion(model : String, prompt : String, size : String, quality : String, n : Int32)
+      url = "#{BASE_URL}/images/generations"
+  
+      body = {
+        model: model,
+        prompt: prompt,
+        size: size,
+        quality: quality,
+        n: n
+      }.to_json
+  
+      response = HTTP::Client.post(url, headers: build_headers, body: body)
+  
+      # Handle the response
+      if response.status_code == 200
+        JSON.parse(response.body)
+      else
+        raise OpenAIError.new("Error: #{response.status_code} - #{response.body}")
+      end
+    end
 
     private def get(url : String, headers : HTTP::Headers? = nil)
       HTTP::Client.get(url, headers: build_headers(headers))
