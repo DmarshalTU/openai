@@ -6,9 +6,6 @@ authors:
 
 description: OpenAI library for Crystal
 
-dependencies:
-  json:
-    github: crystal-lang/json
 
 targets:
   openai:
