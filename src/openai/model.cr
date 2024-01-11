@@ -36,4 +36,21 @@ module OpenAI
       "Model: #{@name} (ID: #{@id}, Status: #{@status})"
     end
   end
+
+  class Message
+    include JSON::Serializable
+
+    @[JSON::Field(name: "role")]
+    property role : String
+
+    @[JSON::Field(name: "content")]
+    property content : String
+
+    def initialize(@role : String, @content : String)
+    end
+
+    def to_hash
+      { "role" => @role, "content" => @content }
+    end
+  end
 end

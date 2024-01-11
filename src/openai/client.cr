@@ -38,22 +38,24 @@ module OpenAI
       Model.from_json(response.body)
     end
 
-    def create_completion(prompt : String, options : NamedTuple(model: String, max_tokens: Int32))
-      url = "#{BASE_URL}engines/#{options[:model]}/completions"
+    def create_chat_completion(messages : Array(Hash(String, String)), model : String, max_tokens : Int32)
+      url = "#{BASE_URL}chat/completions"
     
       body = {
-        prompt: prompt,
-        max_tokens: options[:max_tokens]
+        model: model,
+        messages: messages,
+        max_tokens: max_tokens
       }.to_json
     
       response = HTTP::Client.post(url, headers: build_headers, body: body)
     
       completion_response = handle_response(response)
-      completion_text = completion_response["choices"][0]["text"]
+      completion_text = completion_response["choices"][0]["message"]["content"]
       completion_id = completion_response["id"]
     
       { text: completion_text, id: completion_id }
     end
+    
 
     private def get(url : String, headers : HTTP::Headers? = nil)
       HTTP::Client.get(url, headers: build_headers(headers))

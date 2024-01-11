@@ -7,13 +7,13 @@ authors:
 description: OpenAI library for Crystal
 
 dependencies:
-  json_mapping:
-    github: crystal-lang/json_mapping.cr
+  json:
+    github: crystal-lang/json
 
 targets:
   openai:
     main: src/openai.cr
 
-crystal: 1.9.2
+crystal: 1.11.0
 
 license: MIT
