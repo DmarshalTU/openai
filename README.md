@@ -1,5 +1,8 @@
 # openaiAPI
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/100kw)
+
+
 ![opanAI](./images/opanaiAPI.png)
 
 OpenAI library for Crystal, providing an interface to interact with various OpenAI services.
